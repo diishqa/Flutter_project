@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'screen/home.dart';
 import 'screen/catalog.dart';
 import 'screen/about.dart';
@@ -7,7 +6,6 @@ import 'screen/about.dart';
 void main() {
   runApp(const MeloMirApp());
 }
-
 class MeloMirApp extends StatelessWidget {
   const MeloMirApp({super.key});
   @override
@@ -30,7 +28,6 @@ class MeloMirApp extends StatelessWidget {
     );
   }
 }
-
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
   @override
@@ -54,7 +51,6 @@ class _MainScreenState extends State<MainScreen> {
       const AboutScreen(),
     ];
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

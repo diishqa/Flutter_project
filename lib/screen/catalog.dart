@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../data/products_data.dart';
 import '../widgets/product_card.dart';
 
 class CatalogScreen extends StatelessWidget {
   const CatalogScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

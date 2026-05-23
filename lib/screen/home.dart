@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../data/products_data.dart';
 import '../widgets/product_card.dart';
 
@@ -9,7 +8,6 @@ class HomeScreen extends StatelessWidget {
     super.key,
     required this.onCatalogPressed,
   });
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +28,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const Text(
-                    'Добро пожаловать в MeloMir ♡✨♡',
+                    'Добро пожаловать в MeloMir ♡',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,

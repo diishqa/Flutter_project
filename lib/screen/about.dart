@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
-
   Widget buildMember(
     String imagePath,
     String name,
@@ -10,11 +9,9 @@ class AboutScreen extends StatelessWidget {
   ) {
     return Container(
       padding: const EdgeInsets.all(15),
-
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.08),
@@ -22,7 +19,6 @@ class AboutScreen extends StatelessWidget {
           ),
         ],
       ),
-
       child: Column(
         children: [
           ClipOval(
@@ -33,28 +29,20 @@ class AboutScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-
           const SizedBox(height: 15),
-
           Text(
             name,
-
             textAlign: TextAlign.center,
-
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Color(0xFFBD4367),
             ),
           ),
-
           const SizedBox(height: 8),
-
           Text(
             role,
-
             textAlign: TextAlign.center,
-
             style: const TextStyle(
               color: Color(0xFFBD4367),
             ),
@@ -63,7 +51,6 @@ class AboutScreen extends StatelessWidget {
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -11,6 +11,7 @@ class Product {
     required this.price,
   });
 }
+
 const List<Product> products = [
   Product(
     name: 'Майка',

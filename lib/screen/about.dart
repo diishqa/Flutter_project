@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
   @override
-  
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -49,13 +49,13 @@ class AboutScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _buildTeamMember(
-                        'img/tim.jpg',
+                        'assets/images/products/tim.jpg',
                         'Кузьмина Диана',
                         'Пикми-Директор',
                       ),
                       const SizedBox(width: 30),
                       _buildTeamMember(
-                        'img/dina.jpg',
+                        'assets/images/products/dina.jpg',
                         'Жанатпаева Динара',
                         'Вайпер-Менеджер',
                       ),

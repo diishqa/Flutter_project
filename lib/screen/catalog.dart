@@ -4,6 +4,7 @@ import '../widgets/product_card.dart';
 
 class CatalogScreen extends StatelessWidget {
   const CatalogScreen({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+
+import '../data/products_data.dart';
 import '../widgets/product_card.dart';
 
 class CatalogScreen extends StatelessWidget {
@@ -9,33 +10,23 @@ class CatalogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Каталог товаров',
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: const Color(0xFFEBADC1),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
+        title: const Text('Каталог товаров'),
       ),
-      body: Container(
-        color: const Color(0xFFFFE2EB),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 15,
-              mainAxisSpacing: 15,
-              childAspectRatio: 0.8,
-            ),
-            itemCount: products.length,
-            itemBuilder: (context, index) {
-              return ProductCard(product: products[index]);
-            },
-          ),
+      body: GridView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: allProducts.length,
+        gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
+          childAspectRatio: 0.78,
         ),
+        itemBuilder: (context, index) {
+          return ProductCard(
+            product: allProducts[index],
+          );
+        },
       ),
     );
   }

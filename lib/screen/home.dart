@@ -1,133 +1,167 @@
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+
+import '../data/products_data.dart';
 import '../widgets/product_card.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final VoidCallback onCatalogPressed;
+  const HomeScreen({
+    super.key,
+    required this.onCatalogPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
-            decoration: const BoxDecoration(
-              color: Color(0xFFFFD6E2),
-            ),
-            child: Column(
-              children: [
-                const Text(
-                  'Добро пожаловать в MeloMir ૮ ྀིᴗ͈ . ᴗ͈ ྀིა',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFBD4367),
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Лучшие мили-товары для самых мили-ребят ૮ ․ ․ ྀིა',
-                  style: TextStyle(fontSize: 16, color: Color(0xFFBD4367)),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 12),
-                const Text(
-                  '°❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･⏔⏔⏔ ꒰ ᧔ෆ᧓ ꒱ ⏔⏔⏔°❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･',
-                  style: TextStyle(fontSize: 12, color: Color(0xFFBD4367)),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/catalog');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFBD4367),
-                    foregroundColor: const Color(0xFFFDE1E9),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 12,
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: onCatalogPressed,
+              child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(
+                vertical: 60,
+                horizontal: 20,
+              ),
+              decoration: const BoxDecoration(
+                color: Color(0xFFFFD6E2),
+              ),
+              child: Column(
+                children: [
+                  const Text(
+                    'Добро пожаловать в MeloMir ♡✨♡',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFFBD4367),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 20),
+                  const Text(
+                    'Лучшие мили-товары для самых мили-ребят ♡♡♡',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFFBD4367),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 15),
+                  const Text(
+                    '♡ ♡ ♡ ♡ ♡ ♡ ♡ ♡ ♡ ♡ ♡ ♡ ♡ ♡ ♡',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Color(0xFFBD4367),
                     ),
                   ),
-                  child: const Text('⋆｡˚✴︎⋆Перейти в каталог ⋆✴︎˚｡⋆'),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(30),
-            color: const Color(0xFFFFE2EB),
-            child: Column(
-              children: [
-                const Text(
-                  'Популярные мили-товары -`♡´-',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFBD4367),
-                  ),
-                ),
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: ProductCard(product: popularProducts[0]),
+                  const SizedBox(height: 25),
+                  GestureDetector(
+                    onTap: () {
+                      DefaultTabController.of(context);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 25,
+                        vertical: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFBD4367),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: const Text(
+                        '♡ Перейти в каталог ♡',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: ProductCard(product: popularProducts[1]),
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: ProductCard(product: popularProducts[2]),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(30),
-            color: const Color(0xFFFFE2EB),
-            child: Column(
-              children: [
-                const Text(
-                  '⋆. 𐙚˚࿔ Наши преимущества 𝜗𝜚˚⋆',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFBD4367),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  spacing: 25,
-                  runSpacing: 15,
-                  children: const [
-                    Text('♡ Качественные материалы', style: TextStyle(fontSize: 16)),
-                    Text('♡ Уникальные дизайны', style: TextStyle(fontSize: 16)),
-                    Text('♡ Милый стиль', style: TextStyle(fontSize: 16)),
-                    Text('♡ Хорошие подарки', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ],
+                ],
+              ),
+              )
             ),
-          ),
-        ],
+            const SizedBox(height: 30),
+            const Text(
+              'Популярные мили-товары ♡',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFFBD4367),
+              ),
+            ),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 280,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: popularProducts.map((product) {
+                  return SizedBox(
+                    width: 190,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: ProductCard(
+                        product: product,
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+            const SizedBox(height: 30),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(30),
+              color: const Color(0xFFFFD6E2),
+              child: const Column(
+                children: [
+                  Text(
+                    '♡ Наши преимущества ♡',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFFBD4367),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    '♡ Качественные материалы',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFFBD4367),
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    '♡ Уникальные дизайны',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFFBD4367),
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    '♡ Милый стиль',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFFBD4367),
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    '♡ Хорошие подарки',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFFBD4367),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 40),
+          ],
+        ),
       ),
     );
   }

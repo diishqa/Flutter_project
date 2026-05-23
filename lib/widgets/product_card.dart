@@ -1,100 +1,79 @@
 import 'package:flutter/material.dart';
+
 import '../models/product.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
 
-  const ProductCard({super.key, required this.product});
-  void _showDetails(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(
+  const ProductCard({
+    super.key,
+    required this.product,
+  });
+  
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {},
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.circular(20),
-        ),
-        title: Text(
-          product.name,
-          style: const TextStyle(
-            color: Color(0xFFBD4367),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                product.imagePath,
-                height: 150,
-                width: 150,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 12),
-            Text(product.description),
-            const SizedBox(height: 8),
-            Text(
-              '${product.price} ₽',
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFFBD4367),
-              ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
             ),
           ],
         ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Закрыть'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: InkWell(
-        onTap: () => _showDetails(context),
-        borderRadius: BorderRadius.circular(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(20),
-              ),
-              child: Image.asset(
-                product.imagePath,
-                height: 150,
-                width: double.infinity,
-                fit: BoxFit.contain,
+            Expanded(
+              child: ClipRRect(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(20),
+                ),
+                child: Image.asset(
+                  product.imagePath,
+                  width: double.infinity,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: const Color(0xFFFDE1E9),
+                      child: const Icon(
+                        Icons.image,
+                        size: 50,
+                        color: Color(0xFFBD4367),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(12),
-              child: Text(
-                product.name,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFBD4367),
-                ),
-                textAlign: TextAlign.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    product.name,
+                    style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFFBD4367),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    '${product.price} ₽',
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color: Color(0xFFBD4367),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

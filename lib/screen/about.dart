@@ -14,7 +14,7 @@ class AboutScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: const Color.fromARGB(157, 255, 74, 149),
             blurRadius: 8,
           ),
         ],

@@ -36,7 +36,7 @@ class AboutScreen extends StatelessWidget {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Color(0xFFBD4367),
+              color: Color.fromARGB(255, 189, 67, 104),
             ),
           ),
           const SizedBox(height: 8),
@@ -44,7 +44,7 @@ class AboutScreen extends StatelessWidget {
             role,
             textAlign: TextAlign.center,
             style: const TextStyle(
-              color: Color(0xFFBD4367),
+              color: Color.fromARGB(255, 189, 67, 104),
             ),
           ),
         ],

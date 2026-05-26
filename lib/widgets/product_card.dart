@@ -7,7 +7,7 @@ class ProductCard extends StatelessWidget {
     super.key,
     required this.product,
   });
-  @override
+  @override 
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {},

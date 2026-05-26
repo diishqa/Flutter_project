@@ -14,12 +14,12 @@ class MeloMirApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MeloMir',
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFFFE2EB),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 255, 226, 235),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFBD4367),
+          seedColor: const Color.fromARGB(255, 189, 67, 104),
         ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFFEBADC1),
+          backgroundColor: Color.fromARGB(255, 235, 173, 193),
           centerTitle: true,
           foregroundColor: Colors.white,
         ),
@@ -57,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
       body: screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
-        backgroundColor: const Color(0xFFEBADC1),
+        backgroundColor: const Color.fromARGB(255, 235, 173, 193),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white70,
         onTap: (index) {
